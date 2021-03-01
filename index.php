@@ -20,7 +20,7 @@ try {
      */
     $dbname = "table_test_php";
     $server = "localhost";
-    $password = "";
+    $password = "dev";
     $user = "root";
 
     $con = new PDO("mysql:host = $server;dbname=$dbname;charset=UTF8", $user, $password);
@@ -28,29 +28,26 @@ try {
     /**
      * 1. Insérez un nouvel utilisateur dans la table utilisateur.
      */
-
-    $nom1 = 'Christophe';
-    $prenom1 = 'Blabla';
-    $email1 = 'blabla@gmail.com';
-    $password1 = 'password';
-    $adresse1 = 'Rue du Château';
-    $code_postal1 = '59132';
-    $pays1 = 'France';
-    $date_join1 = '';
+    $nom = 'Cecile';
+    $prenom = 'Bubulle';
+    $email = 'Cebubulle@gmail.com';
+    $password = 'password';
+    $adresse = 'Rue du singe';
+    $code_postal = '59132';
+    $pays = 'France';
 
     // TODO votre code ici.
-    $tadaam = $con->prepare("INSERT INTO utilisateur (nom, prenom, email, password, adresse, code_postal, pays, date_join)
-                             VALUES (:nom, :prenom, :email, :password, :adresse, :code_postal, :pays, :date_join)
+    $tadaam = $con->prepare("INSERT INTO utilisateur (nom, prenom, email, password, adresse, code_postal, pays)
+                             VALUES (:nom, :prenom, :email, :password, :adresse, :code_postal, :pays)
      ");
 
-    $tadaam->bindParam(':nom', $nom1);
-    $tadaam->bindParam(':prenom', $prenom1);
-    $tadaam->bindParam(':email', $email1);
-    $tadaam->bindParam(':password', $password1);
-    $tadaam->bindParam(':adresse', $adresse1);
-    $tadaam->bindParam(':code_postal', $code_postal1);
-    $tadaam->bindParam(':pays', $pays1);
-    $tadaam->bindParam(':date_join', $date_join1);
+    $tadaam->bindParam(':nom', $nom);
+    $tadaam->bindParam(':prenom', $prenom);
+    $tadaam->bindParam(':email', $email);
+    $tadaam->bindParam(':password', $password);
+    $tadaam->bindParam(':adresse', $adresse);
+    $tadaam->bindParam(':code_postal', $code_postal);
+    $tadaam->bindParam(':pays', $pays);
 
     $tadaam->execute();
 
@@ -81,47 +78,45 @@ try {
 
     // TODO Votre code ici.
 
-    $nom = 'Cecile';
-    $prenom = 'Bubulle';
-    $email = 'bubulle@gmail.com';
-    $password = 'password';
-    $adresse = 'Rue du singe';
-    $code_postal = '59132';
-    $pays = 'France';
-    $date_join = '';
+    $name = 'Christophe';
+    $names = 'Blabla';
+    $email1 = 'blabla@gmail.com';
+    $password1 = 'password';
+    $adresse1 = 'Rue du Château';
+    $code_postal1 = '59132';
+    $pays1 = 'France';
 
     $nom2 = 'Victoire';
-    $prenom2 = 'Bubulle';
+    $prenoom = 'Bubulle';
     $email2 = 'bubulle1@gmail.com';
     $password2 = 'azerty';
     $adresse2 = 'Rue du singe';
     $code_postal2 = '75000';
     $pays2 = 'France';
-    $date_join2 = '';
 
-    $tadaam = $con->prepare("INSERT INTO utilisateur (nom, prenom, email, password, adresse, code_postal, pays, date_join)
-                         VALUES (:nom, :prenom, :email, :password, :adresse, :code_postal, :pays, :date_join)
+
+    $go= $con->prepare("INSERT INTO utilisateur (nom, prenom, email, password, adresse, code_postal, pays)
+                         VALUES (:nom, :prenom, :email, :password, :adresse, :code_postal, :pays)
     ");
 
-    $tadaam->bindParam(':nom', $nom);
-    $tadaam->bindParam(':prenom', $prenom);
-    $tadaam->bindParam(':email', $email);
-    $tadaam->bindParam(':password', $password);
-    $tadaam->bindParam(':adresse', $adresse);
-    $tadaam->bindParam(':code_postal', $code_postal);
-    $tadaam->bindParam(':pays', $pays);
-    $tadaam->bindParam(':date_join', $date_join);
+    $go->bindParam(':nom', $name);
+    $go->bindParam(':prenom', $names);
+    $go->bindParam(':email', $email1);
+    $go->bindParam(':password', $password1);
+    $go->bindParam(':adresse', $adresse1);
+    $go->bindParam(':code_postal', $code_postal1);
+    $go->bindParam(':pays', $pays1);
 
-    $tadaam->execute();
+
+    $go->execute();
 
     $tadaam->bindParam(':nom', $nom2);
-    $tadaam->bindParam(':prenom', $prenom2);
+    $tadaam->bindParam(':prenom', $prenoom);
     $tadaam->bindParam(':email', $email2);
     $tadaam->bindParam(':password', $password2);
     $tadaam->bindParam(':adresse', $adresse2);
     $tadaam->bindParam(':code_postal', $code_postal2);
     $tadaam->bindParam(':pays', $pays2);
-    $tadaam->bindParam(':date_join', $date_join2);
 
     $tadaam->execute();
     /**
@@ -133,20 +128,20 @@ try {
             VALUES (:titre, :prix, :description_courte, :description_longue)
     ");
 
-    $titre = 'quelque chose';
-    $price = '1.00';
-    $description_courte = 'un super produit';
-    $description_longue = 'un super produit tendance !';
+    $titre1 = 'quelque chose';
+    $price1 = '1.00';
+    $description_courte1 = 'un super produit';
+    $description_longue1 = 'un super produit tendance !';
 
     $titre2 = 'autre chose';
     $price2 = '3.00';
     $description_courte2 = 'un super produit';
     $description_longue2 = 'un super produit tendance !';
 
-    $tadaam->bindParam(':titre', $titre);
-    $tadaam->bindParam(':prix', $price);
-    $tadaam->bindParam(':description_courte', $description_courte);
-    $tadaam->bindParam(':description_longue', $description_longue);
+    $tadaam->bindParam(':titre', $titre1);
+    $tadaam->bindParam(':prix', $price1);
+    $tadaam->bindParam(':description_courte', $description_courte1);
+    $tadaam->bindParam(':description_longue', $description_longue1);
 
     $tadaam->execute();
 
@@ -187,8 +182,8 @@ try {
     $pays5 = 'France';
     $date_join5 = '';
 
-    $tadaam = $con->prepare("INSERT INTO utilisateur (nom, prenom, email, password, adresse, code_postal, pays, date_join)
-                         VALUES (:nom, :prenom, :email, :password, :adresse, :code_postal, :pays, :date_join)
+    $tadaam = $con->prepare("INSERT INTO utilisateur (nom, prenom, email, password, adresse, code_postal, pays)
+                         VALUES (:nom, :prenom, :email, :password, :adresse, :code_postal, :pays)
     ");
 
     $tadaam->bindParam(':nom', $nom3);
@@ -198,9 +193,9 @@ try {
     $tadaam->bindParam(':adresse', $adresse3);
     $tadaam->bindParam(':code_postal', $code_postal3);
     $tadaam->bindParam(':pays', $pays3);
-    $tadaam->bindParam(':date_join', $date_join3);
 
     $tadaam->execute();
+
     $tadaam->bindParam(':nom', $nom4);
     $tadaam->bindParam(':prenom', $prenom4);
     $tadaam->bindParam(':email', $email4);
@@ -208,9 +203,9 @@ try {
     $tadaam->bindParam(':adresse', $adresse4);
     $tadaam->bindParam(':code_postal', $code_postal4);
     $tadaam->bindParam(':pays', $pays4);
-    $tadaam->bindParam(':date_join', $date_join4);
 
     $tadaam->execute();
+
     $tadaam->bindParam(':nom', $nom5);
     $tadaam->bindParam(':prenom', $prenom5);
     $tadaam->bindParam(':email', $email5);
@@ -218,7 +213,6 @@ try {
     $tadaam->bindParam(':adresse', $adresse5);
     $tadaam->bindParam(':code_postal', $code_postal5);
     $tadaam->bindParam(':pays', $pays5);
-    $tadaam->bindParam(':date_join', $date_join5);
 
     $tadaam->execute();
 
